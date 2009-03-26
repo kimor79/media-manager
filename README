@@ -1,0 +1,9 @@
+Media Manager is a suite of tools and libs meant
+to automate the management of your media library.
+
+The basic flow is:
+
+   * Query torrent sites for new media
+   * Inject torrent into torrent client (ie transmission)
+   * Put newly downloaded media into proper format
+     for reading by a media player (ie plex)

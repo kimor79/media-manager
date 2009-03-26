@@ -1,0 +1,43 @@
+Media-Manager-Identify
+
+Media::Manager::Identify is a perl module used to determine
+what type of media a file is.
+
+INSTALLATION
+
+To install this module, run the following commands:
+
+	perl Makefile.PL
+	make
+	make test
+	make install
+
+SUPPORT AND DOCUMENTATION
+
+After installing, you can find documentation for this module with the
+perldoc command.
+
+    perldoc Media::Manager::Identify
+
+You can also look for information at:
+
+    RT, CPAN's request tracker
+        http://rt.cpan.org/NoAuth/Bugs.html?Dist=Media-Manager-Identify
+
+    AnnoCPAN, Annotated CPAN documentation
+        http://annocpan.org/dist/Media-Manager-Identify
+
+    CPAN Ratings
+        http://cpanratings.perl.org/d/Media-Manager-Identify
+
+    Search CPAN
+        http://search.cpan.org/dist/Media-Manager-Identify/
+
+
+COPYRIGHT AND LICENCE
+
+Copyright (C) 2009 Kimo Rosenbaum
+
+This program is free software; you can redistribute it and/or modify it
+under the same terms as Perl itself.
+
