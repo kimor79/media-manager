@@ -1,9 +1,8 @@
-Media-Manager-Parse
+Media-Manager-Inject
 
-Media::Manager::Parse is a perl module used to parse a media
-file by name and determine as much  metadata as possible. This
-metadata is meant for consumption by a module such as
-Media::Manager::Inject.
+Media::Manager::Inject contains functions to make use of
+Media::Manager::Parse objects and inject new media into your media
+library (ie Plex)
 
 INSTALLATION
 
@@ -19,21 +18,21 @@ SUPPORT AND DOCUMENTATION
 After installing, you can find documentation for this module with the
 perldoc command.
 
-    perldoc Media::Manager::Parse
+    perldoc Media::Manager::Inject
 
 You can also look for information at:
 
     RT, CPAN's request tracker
-        http://rt.cpan.org/NoAuth/Bugs.html?Dist=Media-Manager-Parse
+        http://rt.cpan.org/NoAuth/Bugs.html?Dist=Media-Manager-Inject
 
     AnnoCPAN, Annotated CPAN documentation
-        http://annocpan.org/dist/Media-Manager-Parse
+        http://annocpan.org/dist/Media-Manager-Inject
 
     CPAN Ratings
-        http://cpanratings.perl.org/d/Media-Manager-Parse
+        http://cpanratings.perl.org/d/Media-Manager-Inject
 
     Search CPAN
-        http://search.cpan.org/dist/Media-Manager-Parse/
+        http://search.cpan.org/dist/Media-Manager-Inject/
 
 
 COPYRIGHT AND LICENCE

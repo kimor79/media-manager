@@ -5,7 +5,7 @@ use strict;
 
 =head1 NAME
 
-Media::Manager::Parse - The great new Media::Manager::Parse!
+Media::Manager::Parse - Parse a media file
 
 =head1 VERSION
 
@@ -18,14 +18,29 @@ our $VERSION = '0.01';
 
 =head1 SYNOPSIS
 
-Quick summary of what the module does.
+This module is used to parse a media file and return as much metadata
+as possible.
 
-Perhaps a little code snippet.
-
+    use Data::Dumper;
     use Media::Manager::Parse;
 
-    my $foo = Media::Manager::Parse->new();
-    ...
+    my $mm = Media::Manager::Parse->new( {
+                'file'    => $file,
+                'option_a'    => $value_a,
+    } );
+
+    $mm->setOption('option_b', 'option_b');
+
+    print Dumper($mm);
+
+    $VAR1 = bless( {
+                     'type' => 'tv_show',
+                     'show_name' => 'Some Show',
+                     'season' => '1',
+                     'episode_number' => '15',
+                     'episode_name' => 'foobar',
+                     'format' => 'mkv',
+                   }, 'Media::Manager::Parse' );
 
 =head1 EXPORT
 

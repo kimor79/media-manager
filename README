@@ -4,6 +4,6 @@ to automate the management of your media library.
 The basic flow is:
 
    * Query torrent sites for new media
-   * Inject torrent into torrent client (ie transmission)
+   * Download torrent file for processing by torrent client (ie tranmission)
    * Put newly downloaded media into proper format
-     for reading by a media player (ie plex)
+     for inject into media player (ie plex)
