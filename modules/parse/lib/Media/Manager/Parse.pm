@@ -24,43 +24,98 @@ as possible.
     use Data::Dumper;
     use Media::Manager::Parse;
 
-    my $mm = Media::Manager::Parse->new( {
-                'file'    => $file,
+    my $obj = Media::Manager::Parse->new( {
                 'option_a'    => $value_a,
     } );
 
-    $mm->setOption('option_b', 'option_b');
+    $obj->setOption('option_b', 'option_b');
 
-    print Dumper($mm);
+    my $file = 'Some.Show.S01E15.HDTV-EZTV.mkv';
+    my $media = $obj->parse_name($file);
+    print Dumper($media);
 
-    $VAR1 = bless( {
-                     'type' => 'tv_show',
-                     'show_name' => 'Some Show',
-                     'season' => '1',
-                     'episode_number' => '15',
-                     'episode_name' => 'foobar',
-                     'format' => 'mkv',
-                   }, 'Media::Manager::Parse' );
-
-=head1 EXPORT
-
-A list of functions that can be exported.  You can delete this section
-if you don't export anything, such as for a purely object-oriented module.
+    $VAR1 = {
+              'type' => 'tv',
+              'series' => 'Some Show',
+              'season' => '1',
+              'episode' => '15',
+              'format' => 'mkv',
+            });
 
 =head1 FUNCTIONS
 
-=head2 function1
+=head2 new
 
 =cut
 
-sub function1 {
+sub new {
+	my $proto = shift;
+	my $class = ref($proto) || $proto;
+	my $self = {
+		# default options
+	};
+
+	# add passed in options to $self
+	# after validation
+
+	bless($self, $class);
+	return $self;
 }
 
-=head2 function2
+=head2 parse_name
+
+Parse given name to determine information about media file.
+
+  my $file = 'Battlestar.Galactica.S01E15.HDTV-eztv.avi';
+  my $hashref = $obj->parse_name($file);
 
 =cut
 
-sub function2 {
+sub parse_name {
+	my ($self, $file) = @_;
+	my $hashref = {};
+
+	# TV show checks
+
+	# Match: <show name>.S<season number>E<episode number>
+	if($file =~ m/^(.*)(?:\s|\.)S(\d{1,2})E(\d{1,2})(.*)$/i) {
+		my $series = $1;
+		my $season = $2;
+		my $episode = $3;
+		my $misc = $4;
+
+		my $name = 'unknown';
+		my $format = 'unknown';
+
+		if($season =~ m/^0*(\d)$/) {
+			$season = $1;
+		}
+
+		if($episode =~ m/^0*(\d)$/) {
+			$episode = $1;
+		}
+
+		$misc =~ s/^[\s.-]//;
+
+		if($misc =~ m/^(.*)\.([a-z0-9]{3})/i) {
+			$name = $1;
+			$format = $2;
+		} elsif($misc =~ m/^(.+)/i) {
+			$name = $1;
+		}
+
+		$hashref = {
+			'type' => 'tv',
+			'series' => $series,
+			'season' => $season,
+			'episode' => $episode,
+			'name' => $name,
+			'format' => $format,
+			'misc' => $misc,
+		};
+
+		return $hashref;
+	}
 }
 
 =head1 AUTHOR

@@ -5,6 +5,16 @@ file by name and determine as much  metadata as possible. This
 metadata is meant for consumption by a module such as
 Media::Manager::Inject.
 
+The main do-it-all function is parse() which basically does the
+following:
+
+if input is a directory,
+  look for and attempt to parse an .nfo files
+  if there is a single media file, parse the name
+else
+  parse the file name
+validate the name against a site like tv.com
+
 INSTALLATION
 
 To install this module, run the following commands:
