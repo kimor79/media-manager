@@ -68,6 +68,16 @@ $test_data{'Lost.S04E2'} = {
 	'misc' => '',
 };
 
+$test_data{'LA.Ink.S03E12.HDTV.XviD-SYS.avi'} = {
+	'type' => 'tv',
+	'series' => 'LA.Ink',
+	'season' => '3',
+	'episode' => '12',
+	'format' => 'avi',
+	'name' => 'HDTV.XviD-SYS',
+	'misc' => 'HDTV.XviD-SYS.avi',
+};
+
 
 foreach my $file (keys(%test_data)) {
 	my $got = $obj->parse_name($file);
